@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mandi-market
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: DB_BACKEND
+        value: sqlite
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: ADMIN_SESSION_SECRET
+        generateValue: true
+      - key: DATA_GOV_IN_API_KEY
+        sync: false

@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.git/
+backend/market.db
+backend/backups/
+.env

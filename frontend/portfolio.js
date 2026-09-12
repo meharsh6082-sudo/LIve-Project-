@@ -1,0 +1,10 @@
+function loadPortfolioPage() {
+  document.body.classList.add(`theme-${localStorage.getItem("market-theme") || "1"}`);
+  const key = "market-portfolios"; let portfolios = JSON.parse(localStorage.getItem(key) || "null") || [{ name: "Main portfolio", holdings: [] }]; let selected = 0; const select = document.getElementById("portfolioSelect");
+  function save() { localStorage.setItem(key, JSON.stringify(portfolios)); }
+  function render() { select.innerHTML = portfolios.map((portfolio, index) => `<option value="${index}">${portfolio.name}</option>`).join(""); select.value = selected; const portfolio = portfolios[selected]; document.getElementById("portfolioStats").innerHTML = `<div class="stat-card"><div class="stat-label">Selected portfolio</div><div class="stat-value">${portfolio.name}</div></div><div class="stat-card"><div class="stat-label">Holdings</div><div class="stat-value">${portfolio.holdings.length}</div></div><div class="stat-card"><div class="stat-label">Storage</div><div class="stat-value">Local</div></div>`; document.getElementById("portfolioRows").innerHTML = portfolio.holdings.map((holding, index) => `<div class="setting-row"><span>${holding.symbol}</span><strong>${holding.quantity} units @ Rs ${holding.price}</strong><button class="tool-button" data-remove="${index}">Remove</button></div>`).join("") || '<p class="empty-state">No holdings yet. Add holdings from the stock page in the next portfolio iteration.</p>'; document.querySelectorAll("[data-remove]").forEach(button => button.onclick = () => { portfolio.holdings.splice(Number(button.dataset.remove), 1); save(); render(); }); }
+  document.getElementById("createPortfolio").onclick = () => { const input = document.getElementById("portfolioName"); if (!input.value.trim()) return; portfolios.push({ name: input.value.trim(), holdings: [] }); selected = portfolios.length - 1; input.value = ""; save(); render(); };
+  select.onchange = () => { selected = Number(select.value); render(); };
+  document.getElementById("deletePortfolio").onclick = () => { if (portfolios.length === 1) return; portfolios.splice(selected, 1); selected = 0; save(); render(); };
+  render();
+}

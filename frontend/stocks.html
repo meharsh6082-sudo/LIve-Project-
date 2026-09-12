@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stocks - Mandi &amp; Market</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+  <div class="brand"><span class="brand-mark">◐</span><span class="brand-name">Mandi&nbsp;&amp;&nbsp;Market</span></div>
+  <nav class="site-nav" aria-label="Main navigation"><a href="/">Dashboard</a><a class="is-active" href="/stocks">Stocks</a><a href="/mutual-funds">Mutual Funds</a><a href="/mandi">Mandi</a><a href="/analytics">Analytics</a><a href="/portfolio">Portfolio</a><a href="/settings">Settings</a><a href="/admin">Admin</a></nav>
+  <div class="clock" id="clock">--:--:--</div>
+</div></header>
+<main class="page-shell">
+  <div class="page-heading"><div><h1>Stock monitor</h1><p>Live-ish NSE and BSE quotes, refreshed automatically.</p></div></div>
+  <div class="stat-row" id="stockStats"></div>
+  <section class="stock-tools" aria-label="Stock controls">
+    <input id="stockSearch" type="search" placeholder="Search company or symbol">
+    <select id="stockCategory" aria-label="Filter by category"><option value="all">All categories</option><option value="banking">Banking &amp; finance</option><option value="technology">Technology</option><option value="energy">Energy</option><option value="auto">Automotive</option><option value="consumer">Consumer</option><option value="industrial">Industrial</option></select>
+    <select id="stockSize" aria-label="Filter by size"><option value="all">All sizes</option><option value="large">Large / index</option><option value="mid">Mid / small watchlist</option></select>
+    <select id="stockSort" aria-label="Sort stocks"><option value="symbol">Sort by symbol</option><option value="change">Sort by change</option><option value="price">Sort by price</option><option value="active">Most active</option></select>
+    <button class="tool-button" data-stock-view="all">All</button><button class="tool-button" data-stock-view="gainers">Gainers</button><button class="tool-button" data-stock-view="losers">Losers</button><button class="tool-button" data-stock-view="watchlist">Watchlist</button>
+  </section>
+  <section class="add-stock-row"><input id="newStockSymbol" placeholder="Add Yahoo symbol, e.g. ZOMATO.NS" maxlength="32"><button class="tool-button tool-button--accent" id="addStock">Add stock</button><span id="stockMessage" aria-live="polite"></span></section>
+  <section class="chart-panel"><div class="panel-heading"><div><h2 id="chartTitle">Stock price line</h2><span class="board-sub">One point per 15-second refresh</span></div><div class="chart-controls"><select id="chartSymbol" aria-label="Choose stock for chart"></select><select id="chartWindow" aria-label="Chart window"><option value="20">Last 20 updates</option><option value="60">Last 60 updates</option><option value="120">Last 120 updates</option></select></div></div><canvas id="stockChart" height="180"></canvas></section>
+  <div class="table-scroll"><table class="data-table"><thead><tr><th>Watch</th><th>Company</th><th>Symbol</th><th>Price</th><th>Change</th><th>Day range</th><th>Updated</th></tr></thead><tbody id="stockRows"><tr><td colspan="7" class="empty-state">Loading quotes...</td></tr></tbody></table></div>
+</main>
+<script src="/static/pages.js"></script><script>loadStocksPage();</script>
+</body>
+</html>

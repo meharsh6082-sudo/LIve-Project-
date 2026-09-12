@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - Mandi &amp; Market</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+  <div class="brand"><span class="brand-mark">◐</span><span class="brand-name">Mandi&nbsp;&amp;&nbsp;Market</span></div>
+  <nav class="site-nav" aria-label="Main navigation"><a href="/">Dashboard</a><a href="/stocks">Stocks</a><a href="/mutual-funds">Mutual Funds</a><a href="/mandi">Mandi</a><a href="/analytics">Analytics</a><a href="/portfolio">Portfolio</a><a class="is-active" href="/settings">Settings</a><a href="/admin">Admin</a></nav>
+  <div class="clock" id="clock">--:--:--</div>
+</div></header>
+<main class="page-shell">
+  <div class="page-heading"><div><h1>Settings</h1><p>Connection and refresh details for this market board.</p></div></div>
+  <div class="settings-list">
+    <div class="setting-row"><span>Website background</span><select id="themeSelect" aria-label="Choose website background"><option value="1">1 - Market dark</option><option value="4">4 - Ocean blue</option><option value="6">6 - Warm earth</option><option value="8">8 - Green market</option><option value="9">9 - Plum night</option><option value="15">15 - Paper light</option></select></div>
+    <div class="setting-row"><span>Backend status</span><strong id="healthStatus">Checking...</strong></div>
+    <div class="setting-row"><span>Stock refresh</span><strong>Every 15 seconds</strong></div>
+    <div class="setting-row"><span>Mandi refresh</span><strong>Every 60 minutes</strong></div>
+    <div class="setting-row"><span>Stock source</span><strong>Yahoo Finance</strong></div>
+    <div class="setting-row"><span>Mandi source</span><strong>data.gov.in / AGMARKNET</strong></div>
+  </div>
+</main>
+<script src="/static/pages.js"></script><script>loadSettingsPage();</script>
+</body>
+</html>

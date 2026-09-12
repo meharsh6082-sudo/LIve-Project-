@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandi &amp; Market — live price board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dashboard-page">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">◐</span>
+        <span class="brand-name">Mandi&nbsp;&amp;&nbsp;Market</span>
+      </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="is-active" href="/">Dashboard</a>
+        <a href="/stocks">Stocks</a>
+        <a href="/mutual-funds">Mutual Funds</a>
+        <a href="/mandi">Mandi</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/settings">Settings</a>
+        <a href="/admin">Admin</a>
+      </nav>
+      <div class="market-meta"><span id="marketDay">--</span><span class="clock" id="clock">--:--:--</span><span class="market-status" id="marketStatus">Checking market</span></div>
+    </div>
+  </header>
+
+  <div class="ticker-tape" id="tickerTape" aria-label="Scrolling price feed">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Two markets.<br>One pulse.</h1>
+        <p>Wholesale mandi prices from AGMARKNET and live NSE/BSE quotes,
+           refreshed automatically — no reload, no waiting for tomorrow's newspaper.</p>
+      </div>
+      <div class="index-pair">
+        <div class="hero-spotlight" id="spotlight">
+          <div class="spotlight-label">Nifty 50</div>
+          <div class="spotlight-price" id="spotlightPrice">—</div>
+          <div class="spotlight-change" id="spotlightChange">—</div>
+          <svg class="spotlight-spark" id="spotlightSpark" viewBox="0 0 300 60" preserveAspectRatio="none"></svg>
+        </div>
+        <div class="hero-spotlight" id="sensexSpotlight">
+          <div class="spotlight-label">Sensex</div>
+          <div class="spotlight-price" id="sensexPrice">—</div>
+          <div class="spotlight-change" id="sensexChange">—</div>
+          <svg class="spotlight-spark" id="sensexSpark" viewBox="0 0 300 60" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="board" id="stockBoard">
+      <div class="board-head">
+        <h2>Stock board</h2>
+        <span class="board-sub">NSE &amp; BSE · via Yahoo Finance</span>
+      </div>
+      <div class="card-grid" id="stockGrid"></div>
+    </section>
+
+    <section class="board board--mandi" id="mandiBoard">
+      <div class="board-head">
+        <h2>Mandi board</h2>
+        <div class="board-controls">
+          <select id="stateFilter" aria-label="Filter by state">
+            <option value="">All states</option>
+          </select>
+          <select id="commodityFilter" aria-label="Filter by commodity">
+            <option value="">All commodities</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-grid" id="mandiGrid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Mandi data: data.gov.in / AGMARKNET, updated daily. Stock data: Yahoo Finance, delayed a few minutes. Not for trading decisions.</p>
+    <section class="feedback-panel" aria-labelledby="feedbackTitle">
+      <h2 id="feedbackTitle">Share feedback</h2>
+      <p>Tell us what would make this dashboard more useful.</p>
+      <form id="feedbackForm">
+        <select id="feedbackRating" aria-label="Feedback rating"><option value="5">Excellent</option><option value="4">Good</option><option value="3">Okay</option><option value="2">Needs improvement</option><option value="1">Poor</option></select>
+        <textarea id="feedbackText" rows="3" maxlength="500" placeholder="Write your feedback"></textarea>
+        <button class="tool-button tool-button--accent" type="submit">Send feedback</button>
+        <span id="feedbackMessage" aria-live="polite"></span>
+      </form>
+    </section>
+  </footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

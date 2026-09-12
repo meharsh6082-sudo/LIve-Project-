@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandi Prices - Mandi &amp; Market</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+  <div class="brand"><span class="brand-mark">◐</span><span class="brand-name">Mandi&nbsp;&amp;&nbsp;Market</span></div>
+  <nav class="site-nav" aria-label="Main navigation"><a href="/">Dashboard</a><a href="/stocks">Stocks</a><a href="/mutual-funds">Mutual Funds</a><a class="is-active" href="/mandi">Mandi</a><a href="/analytics">Analytics</a><a href="/portfolio">Portfolio</a><a href="/settings">Settings</a><a href="/admin">Admin</a></nav>
+  <div class="clock" id="clock">--:--:--</div>
+</div></header>
+<main class="page-shell">
+  <div class="page-heading"><div><h1>Mandi prices</h1><p>Exact wholesale prices from AGMARKNET markets.</p></div><div class="board-controls"><select id="stateFilter"><option value="">All states</option></select><select id="commodityFilter"><option value="">All commodities</option></select></div></div>
+  <table class="data-table"><thead><tr><th>Commodity</th><th>Market</th><th>State</th><th>Exact modal price</th><th>Exact range</th><th>Arrival date</th></tr></thead><tbody id="mandiRows"><tr><td colspan="6" class="empty-state">Loading mandi prices...</td></tr></tbody></table>
+</main>
+<script src="/static/pages.js"></script><script>loadMandiPage();</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mutual Funds - Mandi &amp; Market</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header class="topbar"><div class="topbar-inner"><div class="brand"><span class="brand-mark">◐</span><span class="brand-name">Mandi&nbsp;&amp;&nbsp;Market</span></div><nav class="site-nav" aria-label="Main navigation"><a href="/">Dashboard</a><a href="/stocks">Stocks</a><a href="/mutual-funds" class="is-active">Mutual Funds</a><a href="/mandi">Mandi</a><a href="/analytics">Analytics</a><a href="/portfolio">Portfolio</a><a href="/settings">Settings</a></nav><div class="clock" id="clock">--:--:--</div></div></header>
+<main class="page-shell"><div class="page-heading"><div><h1>Mutual funds</h1><p>Scheme metadata and NAV history from the Indian mutual-fund NAV feed.</p></div></div>
+<div class="fund-disclaimer">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</div>
+<section class="fund-search"><input id="fundQuery" type="search" placeholder="Search SBI, HDFC, flexi cap, debt..."><button class="tool-button tool-button--accent" id="fundSearchButton">Search funds</button></section><div id="fundResults" class="fund-results"></div>
+<section id="fundDetail" class="fund-detail"><p class="empty-state">Search for a fund to see its full details.</p></section></main>
+<script src="/static/funds.js?v=3"></script><script>loadFundsPage();</script></body></html>

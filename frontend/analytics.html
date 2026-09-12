@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics - Mandi &amp; Market</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+  <div class="brand"><span class="brand-mark">◐</span><span class="brand-name">Mandi&nbsp;&amp;&nbsp;Market</span></div>
+  <nav class="site-nav" aria-label="Main navigation"><a href="/">Dashboard</a><a href="/stocks">Stocks</a><a href="/mutual-funds">Mutual Funds</a><a href="/mandi">Mandi</a><a class="is-active" href="/analytics">Analytics</a><a href="/portfolio">Portfolio</a><a href="/settings">Settings</a><a href="/admin">Admin</a></nav>
+  <div class="clock" id="clock">--:--:--</div>
+</div></header>
+<main class="page-shell">
+  <div class="page-heading"><div><h1>Market analytics</h1><p>A quick read of the instruments and commodities currently in your board.</p></div></div>
+  <div class="stat-row" id="analyticsStats"></div>
+  <section><h2>Stock movement</h2><div class="bar-list" id="stockBars"><p class="empty-state">Loading analytics...</p></div></section>
+  <section style="margin-top:42px"><h2>Most represented commodities</h2><div class="bar-list" id="commodityBars"><p class="empty-state">Loading analytics...</p></div></section>
+</main>
+<script src="/static/pages.js"></script><script>loadAnalyticsPage();</script>
+</body>
+</html>

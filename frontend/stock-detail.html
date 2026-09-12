@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock detail - Mandi &amp; Market</title><link rel="stylesheet" href="/static/style.css">
+</head>
+<body><header class="topbar"><div class="topbar-inner"><div class="brand"><span class="brand-mark">◐</span><span class="brand-name">Mandi&nbsp;&amp;&nbsp;Market</span></div><nav class="site-nav"><a href="/">Dashboard</a><a class="is-active" href="/stocks">Stocks</a><a href="/mutual-funds">Mutual Funds</a><a href="/mandi">Mandi</a><a href="/alerts">Alerts</a><a href="/calendar">Calendar</a><a href="/help">Help</a><a href="/admin">Admin</a></nav><div class="clock" id="clock">--:--:--</div></div></header>
+<main class="page-shell"><div class="page-heading"><div><p class="eyebrow">Stock detail</p><h1 id="stockName">Loading...</h1><p id="stockSymbol"></p></div><a class="tool-button" href="/stocks">Back to stocks</a></div><div class="stat-row" id="stockDetailStats"></div><section class="chart-panel"><div class="panel-heading"><div><h2>Price history</h2><span class="board-sub">Yahoo Finance history</span></div><select id="historyPeriod"><option value="5d">5 days</option><option value="1mo" selected>1 month</option><option value="3mo">3 months</option><option value="6mo">6 months</option><option value="1y">1 year</option></select></div><canvas id="detailChart" height="240"></canvas></section><p id="stockDetailMessage" class="empty-state"></p></main>
+<script src="/static/pages.js"></script><script src="/static/stock-detail.js"></script><script>loadStockDetailPage();</script></body></html>

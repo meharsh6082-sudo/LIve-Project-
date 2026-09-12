@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Mandi &amp; Market</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+  <div class="brand"><span class="brand-mark">◐</span><span class="brand-name">Mandi&nbsp;&amp;&nbsp;Market</span></div>
+  <nav class="site-nav" aria-label="Main navigation"><a href="/">Dashboard</a><a href="/stocks">Stocks</a><a href="/mutual-funds">Mutual Funds</a><a href="/mandi">Mandi</a><a href="/analytics">Analytics</a><a href="/portfolio">Portfolio</a><a class="is-active" href="/admin">Admin</a></nav>
+  <div class="clock" id="clock">--:--:--</div>
+</div></header>
+<main class="page-shell">
+  <div class="page-heading"><div><h1>Admin controls</h1><p>Monitor data sources, runtime settings, logs, and database health.</p></div><button class="tool-button" id="adminLogout">Log out</button></div>
+  <div class="settings-list">
+    <div class="setting-row"><span>Browser stock refresh interval</span><select id="adminRefresh"><option value="15">15 seconds</option><option value="30">30 seconds</option><option value="60">60 seconds</option></select></div>
+    <div class="setting-row"><span>Dashboard ticker speed</span><select id="adminTicker"><option value="120">Slow - 120 seconds</option><option value="180">Very slow - 180 seconds</option><option value="240">Extra slow - 240 seconds</option></select></div>
+    <div class="setting-row"><span>Tracked stock count</span><strong id="adminStockCount">Loading...</strong></div>
+    <div class="setting-row"><span>Reset local preferences</span><button class="tool-button" id="resetAdmin">Reset browser settings</button></div>
+  </div>
+  <section class="admin-panel"><div class="panel-heading"><div><h2>Data source status</h2><span class="board-sub">Last successful refresh and row count</span></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Source</th><th>Status</th><th>Last success</th><th>Rows</th></tr></thead><tbody id="sourceStatus"><tr><td colspan="4">Loading...</td></tr></tbody></table></div></section>
+  <section class="admin-panel"><div class="panel-heading"><div><h2>Backend refresh settings</h2><span class="board-sub">Changes apply while the server is running</span></div></div><div class="setting-row"><span>Stock refresh interval</span><input id="backendStockRefresh" type="number" min="5" value="15"><span>seconds</span></div><div class="setting-row"><span>Mandi refresh interval</span><input id="backendMandiRefresh" type="number" min="60" value="3600"><span>seconds</span></div><button class="tool-button tool-button--accent" id="saveAdminSettings">Save backend settings</button></section>
+  <section class="admin-panel"><div class="panel-heading"><div><h2>System logs</h2><span class="board-sub">Recent refresh and admin events</span></div></div><ul id="adminLogs" class="admin-log-list"><li>Loading...</li></ul></section>
+  <section class="admin-panel"><div class="panel-heading"><div><h2>Database and backup</h2><span class="board-sub">SQLite database information</span></div></div><p id="adminDbInfo">Loading...</p><button class="tool-button" id="backupDatabase">Create database backup</button></section>
+  <section class="admin-panel"><div class="panel-heading"><div><h2>Admin access</h2><span class="board-sub">This first version uses the ADMIN_PASSWORD environment variable.</span></div></div><p>For local development, the default password is <strong>admin123</strong>. Set a custom password before deployment. Multi-user roles are not enabled yet.</p></section>
+  <p id="adminMessage" class="empty-state"></p>
+</main>
+<script src="/static/admin.js?v=3"></script><script src="/static/admin-tools.js?v=1"></script><script>loadAdminPage();</script>
+</body>
+</html>
